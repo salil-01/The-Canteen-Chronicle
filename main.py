@@ -1,15 +1,21 @@
+# list of all the snack
 itemsList = [
     {"id": 1, "name": "Samosa", "price": 250, "availability": "Yes"},
     {"id": 2, "name": "Chips", "price": 50, "availability": "Yes"},
     {"id": 3, "name": "Lassi", "price": 100, "availability": "Yes"}
 ]
 
+# list of sold snacks
 soldSnacks = []
+
+# generate unique id for each snack
 
 
 def generate_unique_id():
     max_id = max(item["id"] for item in itemsList) if itemsList else 0
     return max_id + 1
+
+# display user input options in cli
 
 
 def display_menu():
@@ -21,6 +27,8 @@ def display_menu():
     print("5. View Sold Snacks")
     print("6. Exit")
 
+# see all the snacks in inventory
+
 
 def view_inventory():
     print("***** Snack Inventory *****")
@@ -28,6 +36,8 @@ def view_inventory():
         print(
             f"ID: {item['id']}\tName: {item['name']}\tPrice: {item['price']}\tAvailability: {item['availability']}")
     print()
+
+# add a snack in inventory
 
 
 def add_snack():
@@ -39,6 +49,8 @@ def add_snack():
             "price": price, "availability": availability}
     itemsList.append(item)
     print("Snack added successfully!\n")
+
+# update existing snack in inventory
 
 
 def update_snack():
@@ -56,18 +68,19 @@ def update_snack():
             return
     print("Snack not found!\n")
 
+# remove existing snack from inventory
+
 
 def remove_snack():
     item_id = int(input("Enter the ID of the snack to remove: "))
     for index, item in enumerate(itemsList):
         if item["id"] == item_id:
-            if item["availability"] == "No":
-                print("This snack has already been sold and cannot be removed.\n")
-                return
             del itemsList[index]
             print("Snack removed successfully!\n")
             return
     print("Snack not found!\n")
+
+# see list of snacks sold
 
 
 def view_sold_snacks():
@@ -79,6 +92,8 @@ def view_sold_snacks():
             print(
                 f"ID: {item['id']}\tName: {item['name']}\tPrice: {item['price']}")
         print()
+
+# main function to continously shows options in cli
 
 
 def inventory_management_app():
