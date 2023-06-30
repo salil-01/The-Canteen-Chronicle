@@ -19,7 +19,7 @@ def generate_unique_id():
 
 
 def display_menu():
-    print("***** Snack Inventory Management *****")
+    print("***** Mumbai Munchies: The Canteen Chronicle *****")
     print("1. View Inventory")
     print("2. Add Snack")
     print("3. Update Snack Availability")
